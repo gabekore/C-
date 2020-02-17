@@ -89,6 +89,11 @@ VisualStudio2017、Windows10で作っています。
     - Thread Stopボタンでスレッド停止
 
 
+# 懸念点
+
+LOG_LEVELのenumは、EXE・プラグイン共にPluginBaseDLL.dllで定義したものを使っているが、これで良かったのかな？
+
+
 # 最後に
 
 プラグイン機能を作るのはかなり簡単

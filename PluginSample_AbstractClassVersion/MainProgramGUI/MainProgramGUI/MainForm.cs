@@ -8,23 +8,24 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static PluginBaseDLL.PluginBaseClass;
 
 namespace MainProgramGUI
 {
     public partial class MainForm : Form
     {
-        /// <summary>
-        /// ログレベル
-        /// </summary>
-        public enum LOG_LEVEL
-        {
-            TRACE,
-            DEBUG,
-            INFO,
-            WARN,
-            ERROR,
-            FATAL,
-        }
+        ///// <summary>
+        ///// ログレベル
+        ///// </summary>
+        //public enum LOG_LEVEL
+        //{
+        //    TRACE,
+        //    DEBUG,
+        //    INFO,
+        //    WARN,
+        //    ERROR,
+        //    FATAL,
+        //}
 
         /// <summary>
         /// フォームのコンストラクタ

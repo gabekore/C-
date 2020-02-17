@@ -1,6 +1,4 @@
-﻿//#define GUI
-
-using System;
+﻿using System;
 using System.IO;
 
 namespace PluginBaseDLL
@@ -29,7 +27,7 @@ namespace PluginBaseDLL
         /// 本当は一元管理にして、MainProgramGUIとPluginBaseで共通的に参照するのがいいのだろうけど
         /// そこまでするのは面倒なのでMainProgramGUIからコピるだけにしておく
         /// </summary>
-        protected enum LOG_LEVEL
+        public enum LOG_LEVEL
         {
             TRACE,
             DEBUG,

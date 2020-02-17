@@ -1,7 +1,4 @@
-﻿//#define GUI ←今回のサンプルではこいつを使う事は無い
-//#define CUI ←こいつを消せばGUIを定義しているような感じになる
-
-using PluginBaseDLL;
+﻿using PluginBaseDLL;
 using System;
 
 // 参照の追加：PluginBaseDLL.dll
