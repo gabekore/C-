@@ -44,7 +44,7 @@ namespace Client
 
         private void BtnGet10YearsAfter_Click(object sender, EventArgs e)
         {
-            _viewModel.Get10YearsAfter();
+            _viewModel.UsetTuple();
         }
 
         private void BtnUseClass_Click(object sender, EventArgs e)
@@ -59,12 +59,17 @@ namespace Client
 
         private void BtnNumCharToInteger_Click(object sender, EventArgs e)
         {
-            _viewModel.NumCharToInteger();
+            _viewModel.UseArray();
         }
 
         private void MainView_FormClosed(object sender, FormClosedEventArgs e)
         {
             _viewModel.StopService();
+        }
+
+        private void BtnOverLoad_Click(object sender, EventArgs e)
+        {
+            _viewModel.UseOverLoad();
         }
     }
 }

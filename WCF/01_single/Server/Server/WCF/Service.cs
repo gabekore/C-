@@ -9,9 +9,6 @@ namespace Server.WCF
     /// </summary>
     public class Service : IService
     {
-        // オーバーロード使用不可
-        // メソッド名が公開サービス名になるため、同名は区別できない
-
         public void CalcMinus(int a, int b, ref int result)
         {
             result = a - b;
@@ -22,7 +19,7 @@ namespace Server.WCF
             return a + b;
         }
 
-        public (string, int) Get10YearsAfter(string name, int age)
+        public (string, int) UsetTuple(string name, int age)
         {
             return ($"10年後の{name}さんの年齢は{age + 10}歳です。", age * 10);
         }
@@ -32,7 +29,7 @@ namespace Server.WCF
             return $"Hello, {name}'s World.";
         }
 
-        public int[] NumCharToInteger(string[] numCharAry)
+        public int[] UseArray(string[] numCharAry)
         {
             return numCharAry.Select(num => int.Parse(num) * 4)
                              .ToArray();
@@ -54,6 +51,11 @@ namespace Server.WCF
                                                     name: $"[KIND-{arg.Kind}]")));
 
             return ret;
+        }
+
+        public string UseOverLoad(int num)
+        {
+            return $"Hello, {num}'s World.";
         }
     }
 }

@@ -183,7 +183,7 @@ namespace Client.ViewModels
             SetLog("-- ↑ --");
         }
 
-        public void Get10YearsAfter()
+        public void UsetTuple()
         {
             SetLog("-- ↓ --");
 
@@ -193,7 +193,7 @@ namespace Client.ViewModels
             {
                 // サービスメソッドの呼び出し.
                 // (string, int) Get10YearsAfter(string name, int age);
-                (var result1, var result2) = _service.Get10YearsAfter("Pochi", 5);
+                (var result1, var result2) = _service.UsetTuple("Pochi", 5);
 
                 SetLog(result1+"/"+result2.ToString());
             }
@@ -270,7 +270,7 @@ namespace Client.ViewModels
             SetLog("-- ↑ --");
         }
 
-        public void NumCharToInteger()
+        public void UseArray()
         {
             SetLog("-- ↓ --");
 
@@ -280,7 +280,7 @@ namespace Client.ViewModels
             {
                 // サービスメソッドの呼び出し.
                 // int[] NumCharToInteger(string[] numCharAry);
-                var result = _service.NumCharToInteger(new string[] { "11","222","3333" });
+                var result = _service.UseArray(new string[] { "11","222","3333" });
 
                 result.ToList().ForEach(r => SetLog(r.ToString()));
             }
@@ -296,6 +296,36 @@ namespace Client.ViewModels
 
             SetLog("-- ↑ --");
         }
+
+        public void UseOverLoad()
+        {
+            SetLog("-- ↓ --");
+
+            StartService();
+
+            try
+            {
+                // サービスメソッドの呼び出し.
+                // int[] NumCharToInteger(string[] numCharAry);
+                var result = _service.UseOverLoad(9);
+
+                SetLog(result.ToString());
+            }
+            catch (CommunicationException ex)
+            {
+                // エラー発生
+                // 
+                // WCFでは、サービスとクライアント間の通信中にエラーが発生した場合
+                // CommunicationExceptionがスローされる。
+                MessageBox.Show(ex.Message);
+                SetLog(ex.Message);
+            }
+
+            SetLog("-- ↑ --");
+        }
+
+
+
 
         //-------------------------------------------------
         // Private

@@ -15,6 +15,9 @@ namespace CommonInterface
         string HelloWorld(string name);
 
         [OperationContract]
+        string UseOverLoad(int num);
+
+        [OperationContract]
         int CalcPlus(int a, int b);
 
         // refを使う
@@ -23,7 +26,7 @@ namespace CommonInterface
 
         // Tupleを使う
         [OperationContract]
-        (string, int) Get10YearsAfter(string name, int age);
+        (string, int) UsetTuple(string name, int age);
 
         // Classを使う
         [OperationContract]
@@ -35,6 +38,6 @@ namespace CommonInterface
 
         // 配列を使う
         [OperationContract]
-        int[] NumCharToInteger(string[] numCharAry);
+        int[] UseArray(string[] numCharAry);
     }
 }

@@ -36,6 +36,7 @@
             this.BtnUseListClass = new System.Windows.Forms.Button();
             this.BtnNumCharToInteger = new System.Windows.Forms.Button();
             this.TxbLog = new System.Windows.Forms.TextBox();
+            this.BtnOverLoad = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BtnHelloWorld
@@ -120,11 +121,22 @@
             this.TxbLog.Size = new System.Drawing.Size(530, 215);
             this.TxbLog.TabIndex = 7;
             // 
+            // BtnOverLoad
+            // 
+            this.BtnOverLoad.Location = new System.Drawing.Point(159, 208);
+            this.BtnOverLoad.Name = "BtnOverLoad";
+            this.BtnOverLoad.Size = new System.Drawing.Size(120, 45);
+            this.BtnOverLoad.TabIndex = 8;
+            this.BtnOverLoad.Text = "OverLoad";
+            this.BtnOverLoad.UseVisualStyleBackColor = true;
+            this.BtnOverLoad.Click += new System.EventHandler(this.BtnOverLoad_Click);
+            // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(554, 509);
+            this.Controls.Add(this.BtnOverLoad);
             this.Controls.Add(this.TxbLog);
             this.Controls.Add(this.BtnUseClass);
             this.Controls.Add(this.BtnUseListClass);
@@ -151,6 +163,7 @@
         private System.Windows.Forms.Button BtnUseListClass;
         private System.Windows.Forms.Button BtnNumCharToInteger;
         private System.Windows.Forms.TextBox TxbLog;
+        private System.Windows.Forms.Button BtnOverLoad;
     }
 }
 

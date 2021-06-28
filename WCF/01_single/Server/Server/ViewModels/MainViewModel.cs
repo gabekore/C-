@@ -105,21 +105,17 @@ namespace Server.ViewModels
 
                 // ※WCFにおいて「ABC」と表現される
 
-                // B：バインディング
+                // A：アドレス（どこ？）
+                string addr = ServiceBaseAddr;
+
+                // B：バインディング（接続方法は？）
                 BasicHttpBinding binding = new BasicHttpBinding();
 
-                // C：コントラクト
+                // C：コントラクト（取り決めは？）
                 Type contract = typeof(IService);
-
-                //// 全ての関数名をサービスエンドポイント名として作成
-                //foreach (var m in methods)
-                //{
-                // A：アドレス
-                string addr = ServiceBaseAddr;
 
                 // サービスエンドポイント作成
                 serviceHost.AddServiceEndpoint(contract, binding, addr);
-                //}
             }
 
             //---------------------------------------------------------
