@@ -89,34 +89,41 @@ namespace Server.ViewModels
             {
                 // 通常はアプリケーション構成ファイルを使うらしいが、
                 // ソースの方が管理しやすいように思う
+                // ※外部マシンにも公開したいならアプリケーションの構成ファイルに書く必要がある
+                //   ソースで書いちゃうと別マシンからアクセスできない
                 Type serviceType = typeof(Service);
                 Uri baseAddress = new Uri(ServiceBaseAddr);
                 serviceHost = new ServiceHost(serviceType, baseAddress);
             }
 
-            //---------------------------------------------------------
-            // ２．サービスエンドポイント作成
-            //     ※サービスエンドポイント名＝関数名
-            //---------------------------------------------------------
-            {
-                // メンバ関数を全取得
-                // GetMembers()だとコンストラクタが入ってしまうのでGetMethods()を使う
-                var methods = typeof(Service).GetMethods(BindingFlags.Instance | BindingFlags.Public | BindingFlags.DeclaredOnly);
+            // ★ローカルマシン内であればエンドポイント不要っぽいので一旦コメントアウトしておく
+            //   
+            ////---------------------------------------------------------
+            //// ２．サービスエンドポイント作成
+            ////     ※サービスエンドポイント名＝関数名
+            ////---------------------------------------------------------
+            //{
+            //    // メンバ関数を全取得
+            //    // GetMembers()だとコンストラクタが入ってしまうのでGetMethods()を使う
+            //    var methods = typeof(Service).GetMethods(BindingFlags.Instance | BindingFlags.Public | BindingFlags.DeclaredOnly);
 
-                // ※WCFにおいて「ABC」と表現される
+            //    // ※WCFにおいて「ABC」と表現される
 
-                // A：アドレス（どこ？）
-                string addr = ServiceBaseAddr;
+            //    foreach (var m in methods)
+            //    {
+            //        // A：アドレス（どこ？）
+            //        string addr = m.Name;
 
-                // B：バインディング（接続方法は？）
-                BasicHttpBinding binding = new BasicHttpBinding();
+            //        // B：バインディング（接続方法は？）
+            //        BasicHttpBinding binding = new BasicHttpBinding();
 
-                // C：コントラクト（取り決めは？）
-                Type contract = typeof(IService);
+            //        // C：コントラクト（取り決めは？）
+            //        Type contract = typeof(IService);
 
-                // サービスエンドポイント作成
-                serviceHost.AddServiceEndpoint(contract, binding, addr);
-            }
+            //        // サービスエンドポイント作成
+            //        serviceHost.AddServiceEndpoint(contract, binding, addr);
+            //    }
+            //}
 
             //---------------------------------------------------------
             // ３．サービスのオープン
