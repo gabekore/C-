@@ -14,8 +14,9 @@
 
 [C#とC++のラムダ式 | 滴了庵日録](aaaa)
 
-[C# to C++ Converter  | Tangible Software Solutions](https://www.tangiblesoftwaresolutions.com/download.html)
+[C# to C++ Converter | Tangible Software Solutions](https://www.tangiblesoftwaresolutions.com/download.html)
 
+[.NETのTuple応用チャレンジ WCFとC++/CLI | slideshare](https://www.slideshare.net/keitasudo1/nettuple-wcfccli)
 
 元ネタは上記の記事ですので、ぜひとも上記記事もご覧ください。
 
@@ -66,5 +67,6 @@ VisualStudio2017、Windows10で作っています。
 - ServerのFormにテキストボックスがありますが、今の所未使用  
 将来的に使いたいので置いてるだけ
 - C++/CLIのクライアントを追加したけど、結局は.NET Frameworkなので、C#との違いが無い  
-よっぽどの特別な理由が無いなら、WCFを使うのならC++/CLIを採用する必要性はゼロと思われる  
+WCFを使うのならC++/CLIを採用する必要性はゼロじゃね？
+よっぽどの特別な理由があればC++/CLIでもいいんだろうけど、そんな理由あるのかな？（資産がC/C++とかかな？）
 って言うか、WCF関係なくC#でいいんじゃないかな
