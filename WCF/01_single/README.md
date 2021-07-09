@@ -8,9 +8,9 @@
 
 [WCFでAddressAccessDeniedExceptionが発生する場合の対処方法 | tekkの日記 C#,VB.NET](https://tekk.hatenadiary.org/entry/20150102/1420205325)
 
-[.NET FrameworkのWCFとは？C#で簡単なサービスを作成する方法 | Qiita](https://www.fenet.jp/dotnet/column/tool/4389/)
+[.NET FrameworkのWCFとは？C#で簡単なサービスを作成する方法 | .NETコラム](https://www.fenet.jp/dotnet/column/tool/4389/)
 
-[WCFのキホン vol.1 | .NETコラム](https://qiita.com/kenji-yokoi/items/7cbe870ec66b48fcf8b8)
+[WCFのキホン vol.1 | Qiita](https://qiita.com/kenji-yokoi/items/7cbe870ec66b48fcf8b8)
 
 
 元ネタは上記の記事ですので、ぜひとも上記記事もご覧ください。

@@ -53,9 +53,10 @@ namespace Server.WCF
             return ret;
         }
 
-        public string UseOverLoad(int num)
-        {
-            return $"Hello, {num}'s World.";
-        }
+        // オーバーロードは使えない
+        //public string HelloWorld(int num)
+        //{
+        //    return $"Hello, {num}'s World.";
+        //}
     }
 }

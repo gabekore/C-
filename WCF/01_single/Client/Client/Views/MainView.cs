@@ -69,7 +69,8 @@ namespace Client
 
         private void BtnOverLoad_Click(object sender, EventArgs e)
         {
-            _viewModel.UseOverLoad();
+            // オーバーロードは使えない
+            // _viewModel.UseOverLoad();
         }
     }
 }

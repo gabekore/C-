@@ -14,8 +14,9 @@ namespace CommonInterface
         [OperationContract]
         string HelloWorld(string name);
 
-        [OperationContract]
-        string UseOverLoad(int num);
+        // オーバロードは使えない
+        // [OperationContract]
+        // string HelloWorld(int num);
 
         [OperationContract]
         int CalcPlus(int a, int b);
