@@ -123,6 +123,7 @@
             // 
             // BtnOverLoad
             // 
+            this.BtnOverLoad.Enabled = false;
             this.BtnOverLoad.Location = new System.Drawing.Point(159, 208);
             this.BtnOverLoad.Name = "BtnOverLoad";
             this.BtnOverLoad.Size = new System.Drawing.Size(120, 45);

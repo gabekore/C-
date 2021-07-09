@@ -134,6 +134,7 @@ namespace ClientCPP {
 			// 
 			// BtnOverLoad
 			// 
+			this->BtnOverLoad->Enabled = false;
 			this->BtnOverLoad->Location = System::Drawing::Point(144, 148);
 			this->BtnOverLoad->Name = L"BtnOverLoad";
 			this->BtnOverLoad->Size = System::Drawing::Size(117, 36);
@@ -412,20 +413,20 @@ namespace ClientCPP {
 		}
 		System::Void BtnOverLoad_Click(System::Object^  sender, System::EventArgs^  e) {
 
-			SetLog("-- Å´ --", __FUNCTION__);
+			//SetLog("-- Å´ --", __FUNCTION__);
 
-			StartService();
+			//StartService();
 
-			try {
-				auto result = _service->UseOverLoad(8);
+			//try {
+			//	auto result = _service->HelloWorld(8);
 
-				SetLog(result, __FUNCTION__);
-			}
-			catch (CommunicationException^ ex) {
-				MessageBox::Show(ex->Message);
-				SetLog(ex->Message, __FUNCTION__);
-			}
-			SetLog("-- Å™ --", __FUNCTION__);
+			//	SetLog(result, __FUNCTION__);
+			//}
+			//catch (CommunicationException^ ex) {
+			//	MessageBox::Show(ex->Message);
+			//	SetLog(ex->Message, __FUNCTION__);
+			//}
+			//SetLog("-- Å™ --", __FUNCTION__);
 		}
 
 		//-------------------------------------------------

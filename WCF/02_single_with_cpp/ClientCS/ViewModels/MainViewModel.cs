@@ -296,32 +296,32 @@ namespace ClientCS.ViewModels
             SetLog("-- ↑ --");
         }
 
-        public void UseOverLoad()
-        {
-            SetLog("-- ↓ --");
+        //public void UseOverLoad()
+        //{
+        //    SetLog("-- ↓ --");
 
-            StartService();
+        //    StartService();
 
-            try
-            {
-                // サービスメソッドの呼び出し.
-                // int[] NumCharToInteger(string[] numCharAry);
-                var result = _service.UseOverLoad(9);
+        //    try
+        //    {
+        //        // サービスメソッドの呼び出し.
+        //        // int[] NumCharToInteger(string[] numCharAry);
+        //        var result = _service.HelloWorld(9);
 
-                SetLog(result.ToString());
-            }
-            catch (CommunicationException ex)
-            {
-                // エラー発生
-                // 
-                // WCFでは、サービスとクライアント間の通信中にエラーが発生した場合
-                // CommunicationExceptionがスローされる。
-                MessageBox.Show(ex.Message);
-                SetLog(ex.Message);
-            }
+        //        SetLog(result.ToString());
+        //    }
+        //    catch (CommunicationException ex)
+        //    {
+        //        // エラー発生
+        //        // 
+        //        // WCFでは、サービスとクライアント間の通信中にエラーが発生した場合
+        //        // CommunicationExceptionがスローされる。
+        //        MessageBox.Show(ex.Message);
+        //        SetLog(ex.Message);
+        //    }
 
-            SetLog("-- ↑ --");
-        }
+        //    SetLog("-- ↑ --");
+        //}
 
 
 

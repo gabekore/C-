@@ -69,7 +69,8 @@ namespace ClientCS
 
         private void BtnOverLoad_Click(object sender, EventArgs e)
         {
-            _viewModel.UseOverLoad();
+            // オーバロードは使えない
+            //_viewModel.UseOverLoad();
         }
     }
 }

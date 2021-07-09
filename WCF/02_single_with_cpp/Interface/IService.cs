@@ -14,8 +14,9 @@ namespace Interface
         [OperationContract]
         string HelloWorld(string name);
 
-        [OperationContract]
-        string UseOverLoad(int num);
+        // オーバロードは使えない
+        //[OperationContract]
+        //string HelloWorld(int num);
 
         [OperationContract]
         int CalcPlus(int a, int b);
@@ -24,7 +25,7 @@ namespace Interface
         [OperationContract]
         void CalcMinus(int a, int b, ref int result);
 
-        // Tupleを使う（戻り値の）
+        // Tupleを使う（戻り値の名前はあってもなくてもどっちでもいいけどあった方が使い良い）
         [OperationContract]
         (string retStr, int retInt) UsetTuple(string name, int age);
 
