@@ -4,7 +4,7 @@
 
 ありがとうございます。
 
-[WCF入門-001 (簡単なサンプル, 自己ホスト形式, コードで記述) |いろいろ備忘録日記](https://devlights.hatenablog.com/entry/20111020/p1)
+[WCF入門-001 (簡単なサンプル, 自己ホスト形式, コードで記述) | いろいろ備忘録日記](https://devlights.hatenablog.com/entry/20111020/p1)
 
 [WCFでAddressAccessDeniedExceptionが発生する場合の対処方法 | tekkの日記 C#,VB.NET](https://tekk.hatenadiary.org/entry/20150102/1420205325)
 
