@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8081/Gabekore" uri="wsdl/localhost_8081/Gabekore.xml"/>
+    <system systemId="http://localhost:8081/Gabekore?singleWsdl" uri="wsdl/localhost_8081/Gabekore.singlewsdl.wsdl"/>
+    <system systemId="http://localhost:8081/Gabekore?wsdl" uri="wsdl/localhost_8081/Gabekore.wsdl"/>
+    <system systemId="http://localhost:8081/Gabekore?wsdl=wsdl0" uri="wsdl/localhost_8081/Gabekore.wsdl_wsdl0.wsdl"/>
+    <system systemId="http://localhost:8081/Gabekore?xsd=xsd0" uri="wsdl/localhost_8081/Gabekore.xsd_xsd0.xsd"/>
+    <system systemId="http://localhost:8081/Gabekore?xsd=xsd1" uri="wsdl/localhost_8081/Gabekore.xsd_xsd1.xsd"/>
+    <system systemId="http://localhost:8081/Gabekore?xsd=xsd2" uri="wsdl/localhost_8081/Gabekore.xsd_xsd2.xsd"/>
+    <system systemId="http://localhost:8081/Gabekore?xsd=xsd3" uri="wsdl/localhost_8081/Gabekore.xsd_xsd3.xsd"/>
+    <system systemId="http://localhost:8081/Gabekore?xsd=xsd4" uri="wsdl/localhost_8081/Gabekore.xsd_xsd4.xsd"/>
+</catalog>
