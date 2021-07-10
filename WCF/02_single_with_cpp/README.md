@@ -4,19 +4,19 @@
 
 ありがとうございます。
 
-[忘れっぽい僕のためのC++/CLIチートシート |Qiita](https://qiita.com/baikichiz/items/1f69d7ea21cb87fab845)
+[忘れっぽい僕のためのC++/CLIチートシート | Qiita](https://qiita.com/baikichiz/items/1f69d7ea21cb87fab845)
 
 [C#の知識を流用する | 天翔記](http://xn--rssu31gj1g.jp/?page=nobu_mod_the_snmod_using_csharp_knowledge)
 
 [C++/CLIを咥えてLINQをつつく0－まずは簡単なところから。本当に簡単？ | 無差別に技術をついばむ鳥](http://indori.blog32.fc2.com/blog-entry-296.html)
 
-[aaaa | aaaa](https://lipoyang.hatenablog.com/entry/2018/11/05/114611)
-
-[C#とC++のラムダ式 | 滴了庵日録](aaaa)
+[C#とC++のラムダ式 | 滴了庵日録](https://lipoyang.hatenablog.com/entry/2018/11/05/114611)
 
 [C# to C++ Converter | Tangible Software Solutions](https://www.tangiblesoftwaresolutions.com/download.html)
 
 [.NETのTuple応用チャレンジ WCFとC++/CLI | slideshare](https://www.slideshare.net/keitasudo1/nettuple-wcfccli)
+
+[C++/CLIでWCFによるプロセス間通信 | Qiita](https://qiita.com/tomboyboy/items/9addcfbad41580725fd8)
 
 元ネタは上記の記事ですので、ぜひとも上記記事もご覧ください。
 
