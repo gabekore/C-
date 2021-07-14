@@ -58,6 +58,7 @@ ClientがServerに要求を出して、結果をもらって画面に表示す�
 # 動作手順
 1. ソリューションで実行
 1. Server（C#）、Client（C#）の2つが起動する
+   - マルチスタートアップで起動することを想定
 1. NetBeansでClient（Java）起動
 1. Serverでサービス開始ボタンクリック
 1. いずれかのClientでボタン押せばServerへ要求が行く
