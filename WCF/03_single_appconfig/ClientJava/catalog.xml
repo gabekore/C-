@@ -2,8 +2,8 @@
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
     <system systemId="http://localhost:8081/Gabekore" uri="xml-resources/web-service-references/Gabekore/wsdl/localhost_8081/Gabekore.xml"/>
     <system systemId="http://localhost:8081/Gabekore?singleWsdl" uri="xml-resources/web-service-references/Gabekore_singleWsdl_1/wsdl/localhost_8081/Gabekore.singlewsdl.wsdl"/>
-    <system systemId="http://localhost:8081/Gabekore?wsdl" uri="xml-resources/web-service-references/Gabekore/wsdl/localhost_8081/Gabekore.wsdl"/>
     <system systemId="http://localhost:8081/Gabekore?wsdl=wsdl0" uri="xml-resources/web-service-references/Gabekore/wsdl/localhost_8081/Gabekore.wsdl_wsdl0.wsdl"/>
+    <system systemId="http://localhost:8081/Gabekore?wsdl" uri="xml-resources/web-service-references/Gabekore/wsdl/localhost_8081/Gabekore.wsdl"/>
     <system systemId="http://localhost:8081/Gabekore?xsd=xsd0" uri="xml-resources/web-service-references/Gabekore/wsdl/localhost_8081/Gabekore.xsd_xsd0.xsd"/>
     <system systemId="http://localhost:8081/Gabekore?xsd=xsd1" uri="xml-resources/web-service-references/Gabekore/wsdl/localhost_8081/Gabekore.xsd_xsd1.xsd"/>
     <system systemId="http://localhost:8081/Gabekore?xsd=xsd2" uri="xml-resources/web-service-references/Gabekore/wsdl/localhost_8081/Gabekore.xsd_xsd2.xsd"/>

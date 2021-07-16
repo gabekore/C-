@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 using System.ServiceModel;
 using System.Windows.Forms;
 using System.Windows.Threading;
-using ClientCS.ServiceReference1;
+using ClientCS.GabekoreService;
 using Interface;
 
 namespace ClientCS.ViewModels
@@ -20,11 +20,11 @@ namespace ClientCS.ViewModels
         //        ↑のメッセージが出ればOK、出ていなければサーバーアプリの作り方がおかしいのでやり直し
         // 4. 事前確認がOKなら次へ進む、NGならサーバーアプリ作り直し
         // 5. クライアントアプリのプロジェクト→右クリック→追加→サービス参照
-        // 6. 必要があればダイアログ下部の名前空間を入力（別にデフォルトのままでもいいけど、分かりやすいのに変更する方がいいでしょう）
+        // 6. 必要があればダイアログ下部の名前空間を入力（別にデフォルトのServiceReference1のままでもいいけど、分かりやすいのに変更する方がいいでしょう）
         // 7. アドレスに「http://localhost:8081/Gabekore」入力→移動ボタン
         // 8. ソリューションエクスプローラー見ると、以下ができている
         //      Connected Service
-        //        ServiceReference1
+        //        ServiceReference1  ←これが名前空間、このソースではGabekoreServiceという名前にしている
         //      Properties
         //        DataSources
         //-------------------------------------------------

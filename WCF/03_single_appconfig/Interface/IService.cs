@@ -6,7 +6,7 @@ using System.ServiceModel;
 /// </summary>
 namespace Interface
 {
-    [ServiceContract(Namespace= "http://services.mydepartment.mycompany.com/myservice/")]
+    [ServiceContract]
     public interface IService
     {
         // 以下、公開サービスメソッド
