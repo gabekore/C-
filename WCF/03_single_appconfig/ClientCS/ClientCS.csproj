@@ -76,7 +76,7 @@
     <EmbeddedResource Include="Views\MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="app.config" />
+    <None Include="App.config" />
     <None Include="Connected Services\GabekoreService\ClientCS.GabekoreService.CalcMinusResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

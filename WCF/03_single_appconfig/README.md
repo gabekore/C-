@@ -55,6 +55,21 @@ ClientがServerに要求を出して、結果をもらって画面に表示す�
 ビルドすればすぐに使えるはず
 
 
+# 動作させる前の準備
+1. ServerのApp.configの「<add baseAddress="http://localhost:8081/Gabekore"/>」のIPアドレスや名前を必要に応じて書き換える
+   - Serverとクライアントアプリを同じマシンで動かすならlocalhostでいい
+   - Serverとクライアントアプリを別のマシンで動かすならIPアドレスにする
+2. 書き換えたら、Serverを起動してサービスを起動し、クライアントアプリでサービス参照をやり直しておく方がいい
+   - ClientCSの場合
+      1. Connected ServicesのGabekoreServiceを削除
+      1. Connected Services→右クリック→サービス参照の追加
+      1. ※以降省略
+   - ClientJavaの場合
+      1. Webサービス参照のGabekore削除
+      1. ClientJavaのプロジェクト→右クリック→新規→Webサービス・クライアント
+      1. ※以降省略
+
+
 # 動作手順
 1. ソリューションで実行
 1. Server（C#）、Client（C#）の2つが起動する
