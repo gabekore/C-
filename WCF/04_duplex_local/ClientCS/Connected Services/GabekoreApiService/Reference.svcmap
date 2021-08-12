@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="411e0594-5fac-455c-a361-6e71a4ab9a97" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8081/Gabekore?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Gabekore.xsd" MetadataType="Schema" ID="139ee04a-1018-4753-9fe1-753e08e7471b" SourceId="1" SourceUrl="http://localhost:8081/Gabekore?xsd=xsd3" />
+    <MetadataFile FileName="Gabekore1.xsd" MetadataType="Schema" ID="a39671cc-693b-44cf-b9cb-e6fa2758060d" SourceId="1" SourceUrl="http://localhost:8081/Gabekore?xsd=xsd2" />
+    <MetadataFile FileName="Gabekore2.xsd" MetadataType="Schema" ID="a9b1f730-75cc-4684-a331-fc1aa536dcea" SourceId="1" SourceUrl="http://localhost:8081/Gabekore?xsd=xsd1" />
+    <MetadataFile FileName="Service.wsdl" MetadataType="Wsdl" ID="00b2cf71-d5c9-4f55-a8eb-66a5f8b6836a" SourceId="1" SourceUrl="http://localhost:8081/Gabekore?wsdl" />
+    <MetadataFile FileName="Gabekore3.xsd" MetadataType="Schema" ID="8a9499eb-4a7f-4a83-b803-41f509fc2409" SourceId="1" SourceUrl="http://localhost:8081/Gabekore?xsd=xsd0" />
+    <MetadataFile FileName="Gabekore4.xsd" MetadataType="Schema" ID="f29db58d-e9ff-46f7-a2ce-1902d793b393" SourceId="1" SourceUrl="http://localhost:8081/Gabekore?xsd=xsd4" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
