@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.ServiceModel;
 using System.Windows.Threading;
+using GalaSoft.MvvmLight.Messaging;
 using Server.APIs;
+using Server.Message;
 using ServiceIF;
 using ServiceIF.ApiIF;
 using ServiceIF.ObjIF;
@@ -32,6 +34,12 @@ namespace Server.ViewModels
             //-------------------------------------------------
             BtnStartServiceEnabled = true;
             BtnStopServiceEnabled = false;
+
+            //-------------------------------------------------
+            // コールバック登録受付通知受信のための準備
+            // ※NuGetでMVVMLightLibs取得
+            //-------------------------------------------------
+            Messenger.Default.Register<CallbackRegistNty>(this, onReceivedMessage);
         }
 
         //-------------------------------------------------
@@ -154,6 +162,8 @@ namespace Server.ViewModels
         /// </summary>
         public void DoCallback()
         {
+            SetLog("コールバック実行");
+
             //var context = OperationContext.Current;
             //var callback = context.GetCallbackChannel<ICallbackType>();
 
@@ -222,9 +232,20 @@ namespace Server.ViewModels
         /// ログ用テキストボックスにテキスト表示
         /// </summary>
         /// <param name="log"></param>
-        private void SetLog(string log)
+        public void SetLog(string log)
         {
             TxbLogText += (log + Environment.NewLine);
+        }
+
+        /// <summary>
+        /// コールバック登録受付通知受信
+        /// Service.csがコールバック登録を受けたらここに通知される
+        /// ※NuGetでMVVMLightLibs取得
+        /// </summary>
+        /// <param name="req"></param>
+        private void onReceivedMessage(CallbackRegistNty req)
+        {
+            SetLog("コールバック登録あり");
         }
     }
 }

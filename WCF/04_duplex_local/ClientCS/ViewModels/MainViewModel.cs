@@ -100,13 +100,14 @@ namespace ClientCS.ViewModels
         //-------------------------------------------------
         // コールバック登録処理
         //-------------------------------------------------
-        private GabekoreApiService.ServiceClient _client;
+        //private GabekoreApiService.ServiceClient _client;
         public void CallbackInitial()
         {
             // 双方向通信を行う場合、サービス側にコールバックの実装を教える必要がある。
             // 参照設定：System.ServiceModel.dll
             var context = new InstanceContext(this);
-            _client = new GabekoreApiService.ServiceClient(context);
+            var _client = new GabekoreApiService.ServiceClient(context);
+            
             _client.CallbackRegist("PID_HOGE");
         }
 
@@ -117,7 +118,7 @@ namespace ClientCS.ViewModels
                 string[] param4,
                 RetClass[] param5)
         {
-            MessageBox.Show($"コールバック来た");
+            SetLog("コールバック来た");
         }
         
 

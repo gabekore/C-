@@ -53,11 +53,11 @@
             // TxbLog
             // 
             this.TxbLog.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TxbLog.Location = new System.Drawing.Point(-56, 282);
+            this.TxbLog.Location = new System.Drawing.Point(12, 282);
             this.TxbLog.Multiline = true;
             this.TxbLog.Name = "TxbLog";
             this.TxbLog.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.TxbLog.Size = new System.Drawing.Size(571, 251);
+            this.TxbLog.Size = new System.Drawing.Size(503, 251);
             this.TxbLog.TabIndex = 16;
             // 
             // BtnUseClass

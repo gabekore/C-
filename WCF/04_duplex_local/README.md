@@ -8,6 +8,13 @@
 
 [WCF入門-007 (基本的なサンプル, 双方向通信(Duplex)) | いろいろ備忘録日記](https://devlights.hatenablog.com/entry/20111023/p2)
 
+[C#で非同期に処理するTask間のメッセージ通信 | JoTech](https://hiroki-sawano.hatenablog.com/entry/2018/09/07/074232)
+
+[C#でシグナル処理 | Qiita](https://qiita.com/rawr/items/6888778b53fc95c41f00)
+
+[スレッド間での情報共有について | stack overflow](https://ja.stackoverflow.com/questions/32749/%E3%82%B9%E3%83%AC%E3%83%83%E3%83%89%E9%96%93%E3%81%A7%E3%81%AE%E6%83%85%E5%A0%B1%E5%85%B1%E6%9C%89%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)
+
+[C#のスレッド間でのデータのやり取りについて | teratail](https://teratail.com/questions/19966)
 
 元ネタは上記の記事ですので、ぜひとも上記記事もご覧ください。
 
@@ -17,15 +24,17 @@ C#とJavaでWCFを実現するサンプルです
 
 動作的なものは前回と同じですが、前回の[03_single_appconfig](https://github.com/gabekore/CSharp/tree/master/WCF/03_single_appconfig)と違うのは
 - サーバープッシュ
-
+- C#クライアントが2つ
 
 構成はこんな感じ
 
 1. ソリューション
    1. Serverプロジェクト
    1. ServiceIFプロジェクト
-   1. C#のClientプロジェクト
-1. JavaのClientプロジェクト
+   1. C#のClient1プロジェクト
+   1. C#のClient2プロジェクト
+1. JavaのClient1プロジェクト
+1. JavaのClient2プロジェクト
 
 
 # 概要

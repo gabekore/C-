@@ -2,6 +2,8 @@
 using System.Linq;
 using System.ServiceModel;
 using System.Windows.Forms;
+using GalaSoft.MvvmLight.Messaging;
+using Server.Message;
 using Server.ViewModels;
 using ServiceIF;
 using ServiceIF.ApiIF;
@@ -79,8 +81,6 @@ namespace Server.APIs
         private static object _lockObj = new object();
         public void CallbackRegist(string pid)
         {
-            MessageBox.Show("コールバック登録あり");
-
             lock (_lockObj)
             {
                 if (!MainViewModel.endPointManager.Keys.Contains(pid))
@@ -110,12 +110,14 @@ namespace Server.APIs
                 {
                     _callbackType = OperationContext.Current.GetCallbackChannel<ICallbackType>();
                 }
-            }
 
-            //if (MainViewModel.endPointManager.Keys.Count > 0)
-            //{
-            //    _callbackType = OperationContext.Current.GetCallbackChannel<ICallbackType>();
-            //}
+                //-------------------------------------------------
+                // コールバック登録受付通知送信
+                // MainViewModelへコールバック登録が来たことの通知を送る
+                // ※NuGetでMVVMLightLibs取得
+                //-------------------------------------------------
+                Messenger.Default.Send<CallbackRegistNty>(new CallbackRegistNty());
+            }
         }
 
     }
