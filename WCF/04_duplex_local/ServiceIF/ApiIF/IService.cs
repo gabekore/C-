@@ -47,7 +47,7 @@ namespace ServiceIF.ApiIF
         int[] UseArray(string[] numCharAry);
 
         [OperationContract(IsOneWay = true)]
-        void CallbackRegist(string pid);
+        void CallbackRegist(string push_id);
 
     }
 }

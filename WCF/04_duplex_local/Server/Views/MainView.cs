@@ -29,6 +29,24 @@ namespace Server
                 nameof(TxbLog.Text),
                 _viewModel,
                 nameof(_viewModel.TxbLogText));
+
+
+            // コンボボックス、セットする一覧
+            CmbPushId.DataBindings.Add(
+                nameof(CmbPushId.DataSource),
+                _viewModel,
+                nameof(_viewModel.ComboSource));
+            CmbPushId.ValueMember = nameof(MainViewModelCombo.Value);
+            CmbPushId.DisplayMember = nameof(MainViewModelCombo.DisplayValue);
+
+            // コンボボックス、SelectedValueプロパティ
+            CmbPushId.DataBindings.Add(
+                nameof(CmbPushId.SelectedValue),
+                _viewModel,
+                nameof(_viewModel.CmbPushIdSelectedValue),
+                false,
+                DataSourceUpdateMode.OnPropertyChanged);
+
         }
 
         /// <summary>

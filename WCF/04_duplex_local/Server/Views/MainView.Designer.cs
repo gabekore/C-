@@ -32,6 +32,8 @@
             this.BtnStopService = new System.Windows.Forms.Button();
             this.TxbLog = new System.Windows.Forms.TextBox();
             this.BtnCallback = new System.Windows.Forms.Button();
+            this.CmbPushId = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // BtnStartService
@@ -65,19 +67,38 @@
             // 
             // BtnCallback
             // 
-            this.BtnCallback.Location = new System.Drawing.Point(358, 12);
+            this.BtnCallback.Location = new System.Drawing.Point(358, 40);
             this.BtnCallback.Name = "BtnCallback";
-            this.BtnCallback.Size = new System.Drawing.Size(167, 70);
+            this.BtnCallback.Size = new System.Drawing.Size(167, 42);
             this.BtnCallback.TabIndex = 3;
             this.BtnCallback.Text = "コールバック";
             this.BtnCallback.UseVisualStyleBackColor = true;
             this.BtnCallback.Click += new System.EventHandler(this.BtnCallback_Click);
+            // 
+            // CmbPushId
+            // 
+            this.CmbPushId.FormattingEnabled = true;
+            this.CmbPushId.Location = new System.Drawing.Point(414, 14);
+            this.CmbPushId.Name = "CmbPushId";
+            this.CmbPushId.Size = new System.Drawing.Size(111, 20);
+            this.CmbPushId.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(358, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 12);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "プッシュID";
             // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(676, 308);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.CmbPushId);
             this.Controls.Add(this.BtnCallback);
             this.Controls.Add(this.TxbLog);
             this.Controls.Add(this.BtnStopService);
@@ -95,6 +116,8 @@
         private System.Windows.Forms.Button BtnStopService;
         private System.Windows.Forms.TextBox TxbLog;
         private System.Windows.Forms.Button BtnCallback;
+        private System.Windows.Forms.ComboBox CmbPushId;
+        private System.Windows.Forms.Label label1;
     }
 }
 

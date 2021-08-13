@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
 using System.Reflection;
 using System.ServiceModel;
 using System.Windows.Threading;
@@ -34,6 +37,15 @@ namespace Server.ViewModels
             //-------------------------------------------------
             BtnStartServiceEnabled = true;
             BtnStopServiceEnabled = false;
+
+            //-------------------------------------------------
+            // コンボボックスの設定値
+            //-------------------------------------------------
+            // UIスレッド渡す
+            //ComboSource = new BindingListAsync<MainViewModelCombo>(dispatcher);
+            ComboSource.Add(new MainViewModelCombo(0, "PID_HOGE"));
+            ComboSource.Add(new MainViewModelCombo(1, "PID_FUGA"));
+            ComboSource.Add(new MainViewModelCombo(2, "PID_HEGE"));
 
             //-------------------------------------------------
             // コールバック登録受付通知受信のための準備
@@ -83,6 +95,46 @@ namespace Server.ViewModels
                 SetProperty(ref _txbLogText, value);
             }
         }
+
+
+
+        //------------------------------------------------------
+        // 通常のプロパティではあるが、BindingListをプロパティとする
+        // これをViewでコンボボックスにDataBindingsする
+        // 普通のListでも良さそうに見えるかも知れないが、Listにデータをaddしてもコントロール部品に通知が行かない
+        // BindingListだと通知が行く
+        //------------------------------------------------------
+        /// <summary>
+        /// コンボボックス、DataSourceプロパティ（設定値一覧）
+        /// </summary>
+        // 非同期考えないならこれでいい↓
+        public BindingList<MainViewModelCombo> ComboSource { get; set; } = new BindingList<MainViewModelCombo>();
+        // 非同期で使うならUIスレッドの事を考えないといけないので、BindingListAsyncクラスを使う（けど、このままでは使えないのでnewはコンストラクタでやる）
+        //public BindingListAsync<MainViewModelCombo> ComboSource { get; set; }
+
+        /// <summary>
+        /// コンボボックス、SelectedValueプロパティ
+        /// </summary>
+        private object _cmbPushIdSelectedValue;
+        public object CmbPushIdSelectedValue
+        {
+            get { return _cmbPushIdSelectedValue; }
+            set
+            {
+                SetProperty(ref _cmbPushIdSelectedValue, value);
+
+                CmbPushIdSelectedItem = ComboSource.FirstOrDefault(x => x.Value == (int)value);
+            }
+        }
+
+        /// <summary>
+        /// コンボボックス、SelectedItemプロパティ
+        /// </summary>
+        public MainViewModelCombo CmbPushIdSelectedItem { get; set; }
+
+
+
+
 
         //-------------------------------------------------
         // WCFサービスオープン／クローズの処理
@@ -177,6 +229,7 @@ namespace Server.ViewModels
             //                                new RetClass(2, "Fuga"),
             //                                new RetClass(3, "Hege"),
             //                    });
+            string push_id = CmbPushIdSelectedItem.DisplayValue;
             string param1 = "abc";
             int param2 = 123; ;
             double param3 = 45.678;
@@ -187,15 +240,18 @@ namespace Server.ViewModels
                                                     new RetClass(30, "へげ"),
             };
 
-            BroadcastMessage(param1,
-                                        param2,
-                                        param3,
-                                        param4,
-                                        param5);
+            BroadcastMessage(
+                        push_id,
+                        param1,
+                        param2,
+                        param3,
+                        param4,
+                        param5);
         }
 
 
         public delegate void ServerPushEventHandler(
+                                            string push_id,
                                             string param1,
                                             int param2,
                                             double param3,
@@ -203,11 +259,16 @@ namespace Server.ViewModels
                                             List<RetClass> param5);
 
         //各クライアントのコールバックを管理する
+        // USE_CONCURRENTDICTIONARYスイッチはプロジェクトで登録
+#if !USE_CONCURRENTDICTIONARY
         public static Dictionary<string, ServerPushEventHandler> endPointManager = new Dictionary<string, ServerPushEventHandler>();
-
+#else
+        public static ConcurrentDictionary<string, ServerPushEventHandler> endPointManager = new ConcurrentDictionary<string, ServerPushEventHandler>();
+#endif
 
 
         public void BroadcastMessage(
+                                string push_id,
                                 string param1,
                                 int param2,
                                 double param3,
@@ -217,6 +278,7 @@ namespace Server.ViewModels
             foreach (string key in endPointManager.Keys)
             {
                 endPointManager[key].Invoke(
+                                        push_id,
                                         param1,
                                         param2,
                                         param3,

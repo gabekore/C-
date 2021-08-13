@@ -81,43 +81,77 @@ namespace Server.APIs
         private static object _lockObj = new object();
         public void CallbackRegist(string pid)
         {
+            // USE_CONCURRENTDICTIONARYスイッチはプロジェクトで登録
+#if !USE_CONCURRENTDICTIONARY
             lock (_lockObj)
             {
-                if (!MainViewModel.endPointManager.Keys.Contains(pid))
-                {
-                    // PIDが無いという事は初登場なので登録
-                    MainViewModel.endPointManager.Add(
-                                        pid,
-                                        (
-                                            param1,
-                                            param2,
-                                            param3,
-                                            param4,
-                                            param5
-                                        ) =>
-                                        {
-                                            _callbackType.CallbackFunction(
-                                                                    param1,
-                                                                    param2,
-                                                                    param3,
-                                                                    param4,
-                                                                    param5);
-                                        }
-                                       );
-                }
+#endif
 
-                if (MainViewModel.endPointManager.Keys.Count > 0)
-                {
-                    _callbackType = OperationContext.Current.GetCallbackChannel<ICallbackType>();
-                }
-
-                //-------------------------------------------------
-                // コールバック登録受付通知送信
-                // MainViewModelへコールバック登録が来たことの通知を送る
-                // ※NuGetでMVVMLightLibs取得
-                //-------------------------------------------------
-                Messenger.Default.Send<CallbackRegistNty>(new CallbackRegistNty());
+#if !USE_CONCURRENTDICTIONARY
+            if (!MainViewModel.endPointManager.Keys.Contains(pid))
+            {
+                // PIDが無いという事は初登場なので登録
+                MainViewModel.endPointManager.Add(
+                                    pid,
+                                    (
+                                        push_id,
+                                        param1,
+                                        param2,
+                                        param3,
+                                        param4,
+                                        param5
+                                    ) =>
+                                    {
+                                        _callbackType.CallbackFunction(
+                                                                push_id,
+                                                                param1,
+                                                                param2,
+                                                                param3,
+                                                                param4,
+                                                                param5);
+                                    }
+                                    );
             }
+#else
+            // 追加（既に存在していれば追加しない）
+            MainViewModel.endPointManager.TryAdd(
+                                pid,
+                                (
+                                    push_id,
+                                    param1,
+                                    param2,
+                                    param3,
+                                    param4,
+                                    param5
+                                ) =>
+                                {
+                                    _callbackType.CallbackFunction(
+                                                            push_id,
+                                                            param1,
+                                                            param2,
+                                                            param3,
+                                                            param4,
+                                                            param5);
+                                }
+                               );
+#endif
+
+            if (MainViewModel.endPointManager.Keys.Count > 0)
+            {
+                _callbackType = OperationContext.Current.GetCallbackChannel<ICallbackType>();
+            }
+
+            //-------------------------------------------------
+            // コールバック登録受付通知送信
+            // MainViewModelへコールバック登録が来たことの通知を送る
+            // ※NuGetでMVVMLightLibs取得
+            //-------------------------------------------------
+            Messenger.Default.Send<CallbackRegistNty>(new CallbackRegistNty());
+
+            // USE_CONCURRENTDICTIONARYスイッチはプロジェクトで登録
+#if !USE_CONCURRENTDICTIONARY
+        }
+#endif
         }
 
     }

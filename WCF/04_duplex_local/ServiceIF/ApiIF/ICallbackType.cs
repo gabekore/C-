@@ -11,6 +11,7 @@ namespace ServiceIF.ApiIF
     {
         [OperationContract(IsOneWay = true)]
         void CallbackFunction(
+                    string push_id,
                     string param1,
                     int param2,
                     double param3,
