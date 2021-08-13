@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceIF", "ServiceIF\Serv
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csproj", "{2F3D04BF-CDBE-4665-BCD4-BD86730BD32B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientCS1", "ClientCS\ClientCS1.csproj", "{853C69FF-22AC-487F-BFDC-BB1EC54D1987}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientCS1", "ClientCS1\ClientCS1.csproj", "{853C69FF-22AC-487F-BFDC-BB1EC54D1987}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
