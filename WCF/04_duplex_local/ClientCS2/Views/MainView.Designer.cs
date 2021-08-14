@@ -178,7 +178,7 @@
             this.Controls.Add(this.BtnCalcPlus);
             this.Controls.Add(this.BtnHelloWorld);
             this.Name = "MainView";
-            this.Text = "[1] WCF Client C# with Server Push";
+            this.Text = "[2] WCF Client C# with Server Push";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
