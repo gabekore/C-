@@ -77,6 +77,7 @@
             // 
             // CmbPushId
             // 
+            this.CmbPushId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbPushId.FormattingEnabled = true;
             this.CmbPushId.Location = new System.Drawing.Point(414, 14);
             this.CmbPushId.Name = "CmbPushId";

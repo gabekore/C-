@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.ServiceModel;
 using System.Windows.Threading;
+using ClientCS.ViewModels;
 using GalaSoft.MvvmLight.Messaging;
 using Server.APIs;
 using Server.Message;
@@ -230,6 +231,12 @@ namespace Server.ViewModels
             //                                new RetClass(3, "Hege"),
             //                    });
             string push_id = CmbPushIdSelectedItem.DisplayValue;
+            if (push_id == null || push_id.Trim() == string.Empty)
+            {
+                SetLog("プッシュIDが空なので中止");
+                return;
+            }
+
             string param1 = "abc";
             int param2 = 123; ;
             double param3 = 45.678;

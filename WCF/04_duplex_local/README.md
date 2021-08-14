@@ -16,6 +16,21 @@
 
 [C#のスレッド間でのデータのやり取りについて | teratail](https://teratail.com/questions/19966)
 
+[C#における変数のアトミック性 | 副業以上起業未満のフリーランス](https://ww7f-4thlab-ddt.com/programming/atomic/)
+
+[C# の long は読み書き Atomic じゃないから Interlocked 使おう | ..たれろぐ..](https://naga-sawa.hatenadiary.org/entry/20160713/1468375077)
+
+[スレッドセーフ | C言語入門](https://kaworu.jpn.org/c/%E3%82%B9%E3%83%AC%E3%83%83%E3%83%89%E3%82%BB%E3%83%BC%E3%83%95)
+
+[アトミック | C言語入門](https://kaworu.jpn.org/c/%E3%82%A2%E3%83%88%E3%83%9F%E3%83%83%E3%82%AF)
+
+[一対多の Dictionary が欲しい | present](https://tnakamura.hatenablog.com/entry/20090611/multi_dictionary)
+
+[【C#】1 つのキーに対して複数の値を登録できる Dictionary を実装する | コガネブログ](https://baba-s.hatenablog.com/entry/2015/03/06/125930)
+
+[C#: Dictionaryのキーに複数の値を使う | け日記](https://ohke.hateblo.jp/entry/2017/03/17/000000)
+
+
 元ネタは上記の記事ですので、ぜひとも上記記事もご覧ください。
 
 

@@ -56,7 +56,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\MainViewModel.cs" />
-    <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\MainView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +113,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{b267db78-9cb3-4b71-b017-98f84ecfa8b0}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ServiceIF\ServiceIF.csproj">
       <Project>{3d3273df-9a55-4d5c-8a7c-523e4a9f53da}</Project>
       <Name>ServiceIF</Name>

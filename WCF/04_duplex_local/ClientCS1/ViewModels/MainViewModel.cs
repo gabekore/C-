@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.ServiceModel;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Threading;
 using ClientCS.GabekoreApiService;
+using Server.ViewModels;
 using ServiceIF;
 using ServiceIF.ObjIF;
 
@@ -25,6 +27,16 @@ namespace ClientCS.ViewModels
         public MainViewModel(Dispatcher dispatcher)
         {
             base.Dispatcher = dispatcher;
+
+            //-------------------------------------------------
+            // コンボボックスの設定値
+            //-------------------------------------------------
+            // UIスレッド渡す
+            //ComboSource = new BindingListAsync<MainViewModelCombo>(dispatcher);
+            ComboSource.Add(new MainViewModelCombo(0, "PID_HOGE"));
+            ComboSource.Add(new MainViewModelCombo(1, "PID_FUGA"));
+            ComboSource.Add(new MainViewModelCombo(2, "PID_HEGE"));
+
         }
 
         //-------------------------------------------------
@@ -42,6 +54,43 @@ namespace ClientCS.ViewModels
                 SetProperty(ref _txbLogText, value);
             }
         }
+
+
+        //------------------------------------------------------
+        // 通常のプロパティではあるが、BindingListをプロパティとする
+        // これをViewでコンボボックスにDataBindingsする
+        // 普通のListでも良さそうに見えるかも知れないが、Listにデータをaddしてもコントロール部品に通知が行かない
+        // BindingListだと通知が行く
+        //------------------------------------------------------
+        /// <summary>
+        /// コンボボックス、DataSourceプロパティ（設定値一覧）
+        /// </summary>
+        // 非同期考えないならこれでいい↓
+        public BindingList<MainViewModelCombo> ComboSource { get; set; } = new BindingList<MainViewModelCombo>();
+        // 非同期で使うならUIスレッドの事を考えないといけないので、BindingListAsyncクラスを使う（けど、このままでは使えないのでnewはコンストラクタでやる）
+        //public BindingListAsync<MainViewModelCombo> ComboSource { get; set; }
+
+        /// <summary>
+        /// コンボボックス、SelectedValueプロパティ
+        /// </summary>
+        private object _cmbPushIdSelectedValue;
+        public object CmbPushIdSelectedValue
+        {
+            get { return _cmbPushIdSelectedValue; }
+            set
+            {
+                SetProperty(ref _cmbPushIdSelectedValue, value);
+
+                CmbPushIdSelectedItem = ComboSource.FirstOrDefault(x => x.Value == (int)value);
+            }
+        }
+
+        /// <summary>
+        /// コンボボックス、SelectedItemプロパティ
+        /// </summary>
+        public MainViewModelCombo CmbPushIdSelectedItem { get; set; }
+
+
 
 
         //-------------------------------------------------
@@ -107,18 +156,32 @@ namespace ClientCS.ViewModels
             // 参照設定：System.ServiceModel.dll
             var context = new InstanceContext(this);
             var _client = new GabekoreApiService.ServiceClient(context);
-            
-            _client.CallbackRegist("PID_HOGE");
+
+            string push_id = CmbPushIdSelectedItem.DisplayValue;
+            if (push_id == null || push_id.Trim() == string.Empty)
+            {
+                SetLog("プッシュIDが空なので中止");
+                return;
+            }
+
+            _client.CallbackRegist(push_id);
         }
 
         public void CallbackFunction(
+                string push_id,
                 string param1,
                 int param2,
                 double param3,
                 string[] param4,
                 RetClass[] param5)
         {
-            SetLog("コールバック来た");
+            SetLog("コールバック来た！");
+            SetLog($"push_id：{push_id}");
+            SetLog($"param1 ：{param1}");
+            SetLog($"param2 ：{param2}");
+            SetLog($"param3 ：{param3}");
+            SetLog($"param4 ：{param4}");
+            SetLog($"param5 ：{param5}");
         }
         
 

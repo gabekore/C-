@@ -38,6 +38,8 @@
             this.BtnCalcPlus = new System.Windows.Forms.Button();
             this.BtnHelloWorld = new System.Windows.Forms.Button();
             this.BtnCallbackRegist = new System.Windows.Forms.Button();
+            this.CmbPushId = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // BtnOverLoad
@@ -132,19 +134,39 @@
             // 
             // BtnCallbackRegist
             // 
-            this.BtnCallbackRegist.Location = new System.Drawing.Point(298, 12);
+            this.BtnCallbackRegist.Location = new System.Drawing.Point(301, 38);
             this.BtnCallbackRegist.Name = "BtnCallbackRegist";
-            this.BtnCallbackRegist.Size = new System.Drawing.Size(120, 45);
+            this.BtnCallbackRegist.Size = new System.Drawing.Size(144, 45);
             this.BtnCallbackRegist.TabIndex = 18;
             this.BtnCallbackRegist.Text = "Callback登録";
             this.BtnCallbackRegist.UseVisualStyleBackColor = true;
             this.BtnCallbackRegist.Click += new System.EventHandler(this.BtnCallbackRegist_Click);
+            // 
+            // CmbPushId
+            // 
+            this.CmbPushId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbPushId.FormattingEnabled = true;
+            this.CmbPushId.Location = new System.Drawing.Point(355, 12);
+            this.CmbPushId.Name = "CmbPushId";
+            this.CmbPushId.Size = new System.Drawing.Size(90, 20);
+            this.CmbPushId.TabIndex = 19;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(299, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 12);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "プッシュID";
             // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(527, 545);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.CmbPushId);
             this.Controls.Add(this.BtnCallbackRegist);
             this.Controls.Add(this.BtnOverLoad);
             this.Controls.Add(this.TxbLog);
@@ -175,6 +197,8 @@
         private System.Windows.Forms.Button BtnCalcPlus;
         private System.Windows.Forms.Button BtnHelloWorld;
         private System.Windows.Forms.Button BtnCallbackRegist;
+        private System.Windows.Forms.ComboBox CmbPushId;
+        private System.Windows.Forms.Label label1;
     }
 }
 

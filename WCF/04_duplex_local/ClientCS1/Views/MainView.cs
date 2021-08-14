@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using System.Windows.Threading;
 using ClientCS.ViewModels;
+using Server.ViewModels;
 
 namespace ClientCS
 {
@@ -21,6 +22,24 @@ namespace ClientCS
                 nameof(TxbLog.Text),
                 _viewModel,
                 nameof(_viewModel.TxbLogText));
+
+
+
+            // コンボボックス、セットする一覧
+            CmbPushId.DataBindings.Add(
+                nameof(CmbPushId.DataSource),
+                _viewModel,
+                nameof(_viewModel.ComboSource));
+            CmbPushId.ValueMember = nameof(MainViewModelCombo.Value);
+            CmbPushId.DisplayMember = nameof(MainViewModelCombo.DisplayValue);
+
+            // コンボボックス、SelectedValueプロパティ
+            CmbPushId.DataBindings.Add(
+                nameof(CmbPushId.SelectedValue),
+                _viewModel,
+                nameof(_viewModel.CmbPushIdSelectedValue),
+                false,
+                DataSourceUpdateMode.OnPropertyChanged);
         }
 
         private void Form1_Load(object sender, EventArgs e)

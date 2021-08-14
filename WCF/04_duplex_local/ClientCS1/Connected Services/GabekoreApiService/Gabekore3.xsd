@@ -120,13 +120,14 @@
   <xs:element name="CallbackRegist">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="pid" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="push_id" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="CallbackFunction">
     <xs:complexType>
       <xs:sequence>
+        <xs:element minOccurs="0" name="push_id" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="param1" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="param2" type="xs:int" />
         <xs:element minOccurs="0" name="param3" type="xs:double" />

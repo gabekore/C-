@@ -65,17 +65,17 @@ namespace ClientCS.GabekoreApiService {
         System.Threading.Tasks.Task<int[]> UseArrayAsync(string[] numCharAry);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IService/CallbackRegist")]
-        void CallbackRegist(string pid);
+        void CallbackRegist(string push_id);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IService/CallbackRegist")]
-        System.Threading.Tasks.Task CallbackRegistAsync(string pid);
+        System.Threading.Tasks.Task CallbackRegistAsync(string push_id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IServiceCallback {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IService/CallbackFunction")]
-        void CallbackFunction(string param1, int param2, double param3, string[] param4, ServiceIF.ObjIF.RetClass[] param5);
+        void CallbackFunction(string push_id, string param1, int param2, double param3, string[] param4, ServiceIF.ObjIF.RetClass[] param5);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -220,12 +220,12 @@ namespace ClientCS.GabekoreApiService {
             return base.Channel.UseArrayAsync(numCharAry);
         }
         
-        public void CallbackRegist(string pid) {
-            base.Channel.CallbackRegist(pid);
+        public void CallbackRegist(string push_id) {
+            base.Channel.CallbackRegist(push_id);
         }
         
-        public System.Threading.Tasks.Task CallbackRegistAsync(string pid) {
-            return base.Channel.CallbackRegistAsync(pid);
+        public System.Threading.Tasks.Task CallbackRegistAsync(string push_id) {
+            return base.Channel.CallbackRegistAsync(push_id);
         }
     }
 }
