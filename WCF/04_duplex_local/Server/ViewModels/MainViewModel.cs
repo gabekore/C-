@@ -259,13 +259,17 @@ namespace Server.ViewModels
                                             List<RetClass> param5);
 
         //各クライアントのコールバックを管理する
-        // USE_CONCURRENTDICTIONARYスイッチはプロジェクトで登録
-#if !USE_CONCURRENTDICTIONARY
-        public static Dictionary<string, ServerPushEventHandler> endPointManager = new Dictionary<string, ServerPushEventHandler>();
-#else
-        public static ConcurrentDictionary<string, ServerPushEventHandler> endPointManager = new ConcurrentDictionary<string, ServerPushEventHandler>();
-#endif
 
+        // DictionaryじゃなくてConcurrentDictionaryにしてlockを使わない方法もあるけど、
+        // 結局メソッドを複数個使うので、クリティカルセクションを作る必要がある（結局lockが必要）
+        // ConcurrentDictionaryのメソッド一つひとつはスレッドセーフでアトミック性も保たれるけど、
+        // メソッドを連続して使うと、メソッドとメソッドの間で別スレッドが入る可能性がある
+        // なのでConcurrentDictionaryにしたところで結局lockは必要
+        // lock使うならConcurrentDictionaryにしを使う意味が無い・・・と思う、多分、知らんけど
+        // -----------
+        // keyにはpush_idが入る
+        public static Dictionary<string, List<ServerPushEventHandler>> endPointManager 
+                                            = new Dictionary<string, List<ServerPushEventHandler>>();
 
         public void BroadcastMessage(
                                 string push_id,
@@ -275,15 +279,23 @@ namespace Server.ViewModels
                                 string[] param4,
                                 List<RetClass> param5)
         {
-            foreach (string key in endPointManager.Keys)
+            foreach (string pid in endPointManager.Keys)
             {
-                endPointManager[key].Invoke(
-                                        push_id,
-                                        param1,
-                                        param2,
-                                        param3,
-                                        param4,
-                                        param5);
+                if (pid != push_id)
+                {
+                    continue;
+                }
+
+                foreach (var value in endPointManager[pid])
+                {
+                    value.Invoke(
+                            push_id,
+                            param1,
+                            param2,
+                            param3,
+                            param4,
+                            param5);
+                } 
             }
         }
 
