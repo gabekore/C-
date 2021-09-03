@@ -81,6 +81,11 @@ namespace Server.APIs
 
         private static object _lockObj = new object();
 
+        /// <summary>
+        /// コールバック登録処理
+        /// ※クライアントから直接ここを呼ばれるイメージ
+        /// </summary>
+        /// <param name="pid"></param>
         public void CallbackRegist(string pid)
         {
             lock (_lockObj)
@@ -150,9 +155,9 @@ namespace Server.APIs
                 //-------------------------------------------------
                 // コールバック登録受付通知送信
                 // MainViewModelへコールバック登録が来たことの通知を送る
-                // ※NuGetでMVVMLightLibs取得
+                // ※NuGetでMVVMLightLibs取得しておくことが必要
                 //-------------------------------------------------
-                Messenger.Default.Send<CallbackRegistNty>(new CallbackRegistNty());
+                Messenger.Default.Send<CallbackRegistNty>(new CallbackRegistNty(pid));
             }
 
         }

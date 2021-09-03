@@ -8,6 +8,14 @@ namespace Server.Message
 {
     public class CallbackRegistNty
     {
-//        public string msg { get; set; }
+        public CallbackRegistNty(string pid)
+        {
+            PId = pid;
+        }
+
+        /// <summary>
+        /// プッシュId
+        /// </summary>
+        public string PId { get; set; }
     }
 }

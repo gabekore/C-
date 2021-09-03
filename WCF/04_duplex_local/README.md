@@ -30,6 +30,11 @@
 
 [C#: Dictionaryのキーに複数の値を使う | け日記](https://ohke.hateblo.jp/entry/2017/03/17/000000)
 
+[WCF Sample 016:netTcpBindingを使用してクライアントコールバックを実装する | Netplanetes](https://www.pine4.net/Memo/Article/Archives/29)
+
+[WCF Sample 021:wsDualHttpBindingを使用してクライアントコールバックを実装する | Netplanetes](https://www.pine4.net/Memo/Article/Archives/43)
+
+
 
 元ネタは上記の記事ですので、ぜひとも上記記事もご覧ください。
 
@@ -48,8 +53,9 @@ C#とJavaでWCFを実現するサンプルです
    1. ServiceIFプロジェクト
    1. C#のClient1プロジェクト
    1. C#のClient2プロジェクト
-1. JavaのClient1プロジェクト
-1. JavaのClient2プロジェクト
+   1. Commonプロジェクト（ServerとClientで共通的に使うクラスをまとめてるだけ）
+1. <del>JavaのClient1プロジェクト（2021/09/03現在、未作成、無理かも？）</del>
+1. <del>JavaのClient2プロジェクト（2021/09/03現在、未作成、無理かも？）</del>
 
 
 # 概要
@@ -77,17 +83,17 @@ ClientがServerに要求を出して、結果をもらって画面に表示す�
       1. Connected ServicesのGabekoreServiceを削除
       1. Connected Services→右クリック→サービス参照の追加
       1. ※以降省略
-   - ClientJavaの場合
-      1. Webサービス参照のGabekore削除
-      1. ClientJavaのプロジェクト→右クリック→新規→Webサービス・クライアント
-      1. ※以降省略
+   - <del>ClientJavaの場合（2021/09/03現在、未作成、無理かも？）
+      1. Webサービス参照のGabekore削除（2021/09/03現在、未作成、無理かも？）
+      1. ClientJavaのプロジェクト→右クリック→新規→Webサービス・クライアント（2021/09/03現在、未作成、無理かも？）
+      1. ※以降省略</del>
 
 
 # 動作手順
 1. ソリューションで実行
 1. Server（C#）、Client（C#）の2つが起動する
    - マルチスタートアップで起動することを想定
-1. NetBeansでClient（Java）起動
+1. <del>NetBeansでClient（Java）起動（2021/09/03現在、未作成、無理かも？）</del>
 1. Serverでサービス開始ボタンクリック
 1. いずれかのClientでボタン押せばServerへ要求が行く
 1. Clientのテキストボックスに結果が表示される

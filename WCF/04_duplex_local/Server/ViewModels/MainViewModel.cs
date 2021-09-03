@@ -326,7 +326,7 @@ namespace Server.ViewModels
         /// <param name="req"></param>
         private void onReceivedMessage(CallbackRegistNty req)
         {
-            SetLog("コールバック登録あり");
+            SetLog($"コールバック登録あり pid=[{req.PId}]");
         }
     }
 }
